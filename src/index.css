@@ -40,6 +40,8 @@ body {
 }
 
 .field {
+  display: flex;
+  flex-wrap: wrap;
   margin-top: 2px;
   color: white;
   background: #0f1d1d;

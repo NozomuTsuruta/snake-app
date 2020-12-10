@@ -70,7 +70,6 @@ function App() {
   const [body, setBody] = useState<IPosition[]>([]);
   const [status, setStatus] = useState<IStatus>(GameStatus.init);
   const [difficulty, setDifficulty] = useState(defaultDifficulty);
-  const defaultInterval = 500;
 
   const timer = useRef<NodeJS.Timeout>();
 
@@ -105,7 +104,7 @@ function App() {
   const onRestart = () => {
     timer.current = setInterval(() => {
       setTick((tick) => tick + 1);
-    }, defaultInterval);
+    }, Difficulty[difficulty - 1]);
     setDirection(Direction.up);
     setStatus(GameStatus.init);
     setBody([initialPosition]);
@@ -137,7 +136,7 @@ function App() {
       }
       setDifficulty(difficulty);
     },
-    [status, difficulty]
+    [status]
   );
 
   useEffect(() => {

@@ -1,4 +1,5 @@
 import React from "react";
+import { GameStatus } from "../utils/constants";
 import { IStatus } from "../utils/types";
 
 type Props = {
@@ -16,22 +17,22 @@ export const Button: React.FC<Props> = ({
 }) => {
   return (
     <div className="button">
-      {status === "gameover" && (
+      {status === GameStatus.gameover && (
         <button className="btn btn-gameover" onClick={onRestart}>
           gameover
         </button>
       )}
-      {status === "init" && (
+      {status === GameStatus.init && (
         <button className="btn btn-init" onClick={onStart}>
           start
         </button>
       )}
-      {status === "suspended" && (
+      {status === GameStatus.suspended && (
         <button className="btn btn-suspended" onClick={onStart}>
           start
         </button>
       )}
-      {status === "playing" && (
+      {status === GameStatus.playing && (
         <button className="btn btn-playing" onClick={onStop}>
           stop
         </button>

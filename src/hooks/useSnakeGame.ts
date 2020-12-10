@@ -81,7 +81,7 @@ const useSnakeGame = () => {
       }
       setDirection(newDirection);
     },
-    [direction]
+    [direction, status]
   );
 
   const updateDifficulty = useCallback(

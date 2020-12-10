@@ -4,12 +4,15 @@ export const fieldSize = 35;
 
 export const initialPosition = { x: 17, y: 17 };
 
-export const initialValues = initFields(35, initialPosition);
+export const initialValues = initFields(fieldSize, initialPosition);
 initialValues[9][9] = "food";
 
 export const defaultDifficulty = 3;
+
 export const defaultInterval = 100;
-export const Difficulty = [1000, 500, 100, 50, 10];
+
+export const Difficulty = [1000, 500, 100, 50, 10] as const;
+
 export const GameStatus = {
   init: "init",
   playing: "playing",

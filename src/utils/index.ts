@@ -13,7 +13,7 @@ export const initFields = (fieldSize: number, snake: any) => {
   return fields;
 };
 
-export const getFoodPosition = (fieldSize: number, excludes: any[]) => {
+export const getFoodPosition = (fieldSize: number, excludes: IPosition[]) => {
   while (true) {
     const x = Math.floor(Math.random() * (fieldSize - 1 - 1)) + 1;
     const y = Math.floor(Math.random() * (fieldSize - 1 - 1)) + 1;
@@ -37,6 +37,6 @@ export const isCollision = (fieldSize: number, position: IPosition) => {
   return false;
 };
 
-export const isEatingMyself = (fields: any, position: any) => {
+export const isEatingMyself = (fields: string[][], position: IPosition) => {
   return fields[position.y][position.x] === "snake";
 };

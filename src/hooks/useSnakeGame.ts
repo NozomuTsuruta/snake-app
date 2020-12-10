@@ -12,7 +12,12 @@ import {
   GameStatus,
   OppositeDirection,
 } from "../utils/constants";
-import { initFields, isCollision, isEatingMyself, getFoodPosition } from "../utils";
+import {
+  initFields,
+  isCollision,
+  isEatingMyself,
+  getFoodPosition,
+} from "../utils";
 
 const useSnakeGame = () => {
   const timer = useRef<NodeJS.Timeout>();
@@ -63,6 +68,7 @@ const useSnakeGame = () => {
     setBody([initialPosition]);
     setDirection(Direction.up);
     setFields(initFields(fields.length, initialPosition));
+    setDifficulty(defaultDifficulty);
   };
 
   const updateDirection = useCallback(
@@ -75,11 +81,11 @@ const useSnakeGame = () => {
       }
       setDirection(newDirection);
     },
-    [direction, status]
+    [direction]
   );
 
   const updateDifficulty = useCallback(
-    (difficulty) => {
+    (difficulty: number) => {
       if (status !== GameStatus.init) {
         return;
       }
@@ -92,9 +98,9 @@ const useSnakeGame = () => {
   );
 
   useEffect(() => {
-    const handleKeyDown = (e: any) => {
+    const handleKeyDown = (e: KeyboardEvent) => {
       const newDirection =
-        DirectionKeyCodeMap[e.keyCode as "37" | "38" | "39" | "40"];
+        DirectionKeyCodeMap[e.key as "37" | "38" | "39" | "40"];
       if (!newDirection) {
         return;
       }

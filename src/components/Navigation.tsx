@@ -16,6 +16,7 @@ export const Navigation: React.FC<Props> = ({
   const downVisibility = difficulty > 1 ? "" : "is-hidden";
   const onUpDifficulty = () => onChangeDifficulty(difficulty + 1);
   const onDownDifficulty = () => onChangeDifficulty(difficulty - 1);
+  
   return (
     <div className="navigation">
       <div className="navigation-item">

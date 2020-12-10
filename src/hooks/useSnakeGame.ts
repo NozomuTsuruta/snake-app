@@ -98,9 +98,9 @@ const useSnakeGame = () => {
   );
 
   useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
+    const handleKeyDown = (e: any) => {
       const newDirection =
-        DirectionKeyCodeMap[e.key as "37" | "38" | "39" | "40"];
+        DirectionKeyCodeMap[e.keyCode as "37" | "38" | "39" | "40"];
       if (!newDirection) {
         return;
       }
